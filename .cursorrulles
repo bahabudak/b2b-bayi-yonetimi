@@ -1,0 +1,22 @@
+# B2B SaaS Dealer Management System - Project Guidelines
+
+## 1. Project Overview & Tech Stack
+- **Project**: B2B SaaS Multi-tenant Wholesale & Dealer Management System
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript (Strict Mode)
+- **Styling**: Tailwind CSS
+- **Database**: PostgreSQL
+
+## 2. Multi-Tenancy & Data Security Rules
+- **Tenant Isolation**: ALL database queries, models, and API requests MUST strictly filter by `tenant_id`. Never run global queries without explicit tenant scoping.
+- **Role-Based Access Control (RBAC)**: Enforce access control for roles: `Admin`, `Dealer Manager`, `Warehouse`. Protect API routes and server actions based on these roles.
+
+## 3. Business Logic Standards
+- **Credit Limits**: Enforce strict credit limit and balance checks before order placement.
+- **Order Approval**: Implement approval workflows for orders exceeding thresholds or specific dealer rules.
+- **Warehouse Operations**: Provide isolated views and actions for warehouse role inventory management.
+
+## 4. Code Quality & Conventions
+- Use strict TypeScript interfaces for all data structures and API contracts.
+- Default to Next.js React Server Components (RSC) for data fetching. Use `'use client'` only when client-side state or interactivity is required.
+- Maintain a clean and modular folder structure within `src/app`.
